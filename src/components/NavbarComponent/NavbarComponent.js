@@ -7,8 +7,8 @@ import Icon from '../../Image_Icon/icon.png';
 
 const NavbarComponent = () => {
     return (
-        <Navbar expand="lg">
-            <Container fluid >
+        <Navbar sticky="top" className='secondary-bg' expand="lg">
+            <Container fluid className='container mx-auto'>
                 <Navbar.Brand href="#">
                     <img src={Icon} alt="icon" className="icon" />
                 </Navbar.Brand>

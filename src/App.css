@@ -20,3 +20,19 @@ body {
   background-color: #251D58 !important;
   color: #fff !important;
 }
+
+.secondary-bg {
+  background-color: #F6F6F6;
+}
+
+.paragraph-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  /* or 175% */
+
+  letter-spacing: 0.0015em;
+
+  color: #606268 !important;
+}

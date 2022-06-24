@@ -1,0 +1,9 @@
+/* .banner-section {} */
+
+.banner-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 80px;
+    letter-spacing: 0.0015em;
+}
