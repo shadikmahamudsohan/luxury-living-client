@@ -1,0 +1,38 @@
+.project-section {
+    margin: 129px 0;
+}
+
+.project-p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.0015em;
+}
+
+.project-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: 0.0015em;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.card {
+    transition: 300ms;
+    border: none;
+}
+
+.card:hover {
+    box-shadow: 0 5px 5px rgba(68, 68, 68, 0.548);
+    transform: translateY(-5px);
+}
+
+.card:active {
+    box-shadow: none;
+}
