@@ -36,3 +36,17 @@
 .card:active {
     box-shadow: none;
 }
+
+
+.inner {
+    overflow: hidden;
+}
+
+.inner img {
+    transition: 700ms;
+}
+
+.inner:hover img {
+    transform: scale(1.3);
+    opacity: 80%;
+}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useHouseData from '../../../hooks/useHouseData';
 import Project from './Project';
 import './Projects.css';
 
@@ -15,27 +16,13 @@ https://i.ibb.co/HCchTz3/francesca-tosolini-Xy-Gv-Ej587-Mc-unsplash.jpg
 */
 
 const Projects = () => {
-    const [houses, setHouses] = useState([]);
-    const [loading, isLoading] = useState(false);
-    useEffect(() => {
-        isLoading(true);
-        axios.get('http://localhost:5000/houses')
-            .then(res => {
-                setHouses(res.data);
-                isLoading(false);
-            });
-    }, []);
-
-
+    const [houses, loading] = useHouseData();
     if (loading) {
         return <h1>Loading</h1>;
     }
-
-
     const handleClick = (data) => {
         console.log(data);
     };
-    // console.log(houses);
     return (
         <section className='project-section'>
             <p className="project-p text-main-primary text-center">
@@ -55,7 +42,7 @@ const Projects = () => {
                 }
             </div>
             <div className='d-flex justify-content-center '>
-                <Link to="/Houses"><button className='btn btn-main-primary mb-5 px-4'>See All Houses</button></Link>
+                <Link to="/houses"><button className='btn btn-main-primary mb-5 px-4'>See All Houses</button></Link>
             </div>
         </section>
     );

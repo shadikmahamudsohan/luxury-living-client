@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Project = ({ data, handleClick }) => {
+const House = ({ data }) => {
     const { _id, image, name, location } = data;
     return (
         <div className='text-center col-12 col-md-4'>
@@ -18,4 +18,4 @@ const Project = ({ data, handleClick }) => {
     );
 };
 
-export default Project;
+export default House;
