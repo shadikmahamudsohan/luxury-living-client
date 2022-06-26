@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <section className='secondary-bg banner-section'>
             <div className='container mx-auto row g-4 py-5 align-items-center'>
-                <div className="col col-md-6">
+                <div className="col-12 col-md-6">
                     <h1 className='text-main-primary banner-title'>
                         We Build <br />
                         Your Dream
