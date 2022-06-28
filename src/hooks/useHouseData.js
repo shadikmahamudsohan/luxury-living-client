@@ -6,7 +6,7 @@ const useHouseData = () => {
     const [loading, isLoading] = useState(false);
     useEffect(() => {
         isLoading(true);
-        axios.get('http://localhost:5000/houses')
+        axios.get('https://enigmatic-forest-90835.herokuapp.com/houses')
             .then(res => {
                 setHouses(res.data);
                 isLoading(false);
