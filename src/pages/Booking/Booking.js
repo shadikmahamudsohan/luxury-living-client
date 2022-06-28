@@ -17,16 +17,17 @@ const Booking = () => {
         <div className='booking'>
             <button onClick={() => { navigate(`/${window.history.back()}`); }} className='btn p-3 m-2 btn-main-primary go-back'>{"<-Back"}</button>
             <img className='booking-image' src={house?.image} alt="background" />
-            <div className='d-flex align-items-center justify-content-center'>
-                <div class="my-5 card shadow">
-                    <div class="row g-0">
-                        <div class="col-12 col-md-6">
-                            <img src={house?.image} class="rounded-start card-image" alt="..." />
+            <div className='overlay'></div>
+            <div className='container mx-auto d-flex align-items-center justify-content-center'>
+                <div className="my-5 card shadow">
+                    <div className="row g-0">
+                        <div className="col-12 col-md-6">
+                            <img src={house?.image} className="rounded-start card-image" alt="..." />
                         </div>
-                        <div class="col-12 col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title text-main-primary">{house?.name}</h5>
-                                <p class="paragraph-text">
+                        <div className="col-12 col-md-6">
+                            <div className="card-body">
+                                <h5 className="card-title text-main-primary">{house?.name}</h5>
+                                <p className="paragraph-text">
                                     <ul>
                                         <li>price: {house?.price}</li>
                                         <li>availableFrom: {house?.availableFrom}</li>
