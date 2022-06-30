@@ -1,9 +1,10 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import useHouseData from '../../../hooks/useHouseData';
-import Project from './Project';
-import './Projects.css';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import CustomSpinner from "../../../components/CustomSpinner";
+import useHouseData from "../../../hooks/useHouseData";
+import Project from "./Project";
+import "./Projects.css";
 
 /* 
 https://i.ibb.co/XYTzk6j/jarek-ceborski-jn7u-Ve-Cdf6-U-unsplash.jpg
@@ -16,36 +17,34 @@ https://i.ibb.co/HCchTz3/francesca-tosolini-Xy-Gv-Ej587-Mc-unsplash.jpg
 */
 
 const Projects = () => {
-    const [houses, loading] = useHouseData();
-    if (loading) {
-        return <h1>Loading</h1>;
-    }
-    const handleClick = (data) => {
-        console.log(data);
-    };
-    return (
-        <section className='project-section'>
-            <p className="project-p text-main-primary text-center">
-                Projects
-            </p>
-            <h1 className="project-title text-main-primary text-center">
-                Discover the latest Interior Design <br />
-                available today
-            </h1>
-            <div className='my-5 houses row'>
-                {
-                    houses.slice(0, 3)?.map(h => <Project
-                        key={h._id}
-                        data={h}
-                        handleClick={handleClick}
-                    />)
-                }
-            </div>
-            <div className='d-flex justify-content-center '>
-                <Link to="/houses"><button className='btn btn-main-primary mb-5 px-4'>See All Houses</button></Link>
-            </div>
-        </section>
-    );
+  const [houses, loading] = useHouseData();
+  if (loading) {
+    return <CustomSpinner />;
+  }
+  const handleClick = (data) => {
+    console.log(data);
+  };
+  return (
+    <section className="project-section">
+      <p className="project-p text-main-primary text-center">Projects</p>
+      <h1 className="project-title text-main-primary text-center">
+        Discover the latest Interior Design <br />
+        available today
+      </h1>
+      <div className="my-5 houses row">
+        {houses.slice(0, 3)?.map((h) => (
+          <Project key={h._id} data={h} handleClick={handleClick} />
+        ))}
+      </div>
+      <div className="d-flex justify-content-center ">
+        <Link to="/houses">
+          <button className="btn btn-main-primary mb-5 px-4">
+            See All Houses
+          </button>
+        </Link>
+      </div>
+    </section>
+  );
 };
 
 export default Projects;
