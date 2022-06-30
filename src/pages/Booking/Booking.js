@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CustomSpinner from "../../components/CustomSpinner";
 import OverlayBg from "../../components/OverlayBg/OverlayBg";
 import useOneHouseData from "../../hooks/useOneHouseData";
@@ -9,6 +10,19 @@ import "./Booking.css";
 const Booking = () => {
   const { id } = useParams();
   const [validated, setValidated] = useState(false);
+  const [userData, setUserData] = useState(id);
+  const navigate = useNavigate();
+  useEffect(() => {
+    axios
+      .post("http://localhost:5000/add-user-data", userData)
+      .then(function (response) {
+        navigate("/");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [id, userData, navigate]);
+
   const [house, loading] = useOneHouseData(id);
   if (loading) {
     return <CustomSpinner />;
@@ -26,8 +40,16 @@ const Booking = () => {
       // finding input data
       const name = event.target.Name.value;
       const members = event.target.Members.value;
-      const Email = event.target.Email.value;
-      const Location = event.target.Location.value;
+      const email = event.target.Email.value;
+      const location = event.target.Location.value;
+      const data = {
+        name,
+        members,
+        email,
+        location,
+        house,
+      };
+      setUserData(data);
     }
     setValidated(true);
     // ---------validation end---------
